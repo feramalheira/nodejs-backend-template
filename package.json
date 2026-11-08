@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-backend-template",
+  "version": "1.0.0",
+  "description": "Simple backend template for nodejs applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feramalheira/nodejs-backend-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/feramalheira/nodejs-backend-template/issues"
+  },
+  "homepage": "https://github.com/feramalheira/nodejs-backend-template#readme"
+}
