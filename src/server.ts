@@ -1,7 +1,11 @@
 
-async function main() {
-  console.log("Hello World!");
-}
+import express, { type Express, type Request, type Response } from 'express';
 
-await main();
+const app: Express = express();
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World!');
+});
+
+app.listen(3000);
 
