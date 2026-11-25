@@ -1,4 +1,4 @@
-import HelloRepository from "../repositories/Hello.repository.js";
+import HelloRepository from "../repositories/Hello.repository.ts";
 
 export default class HelloService {
     _repository: HelloRepository;
@@ -14,7 +14,11 @@ export default class HelloService {
         return this.create_hello_string("World");
     }
 
-    async create_hello_name_string() {
-        //
+    async create_hello_name_string(name: string | string[]) {
+        if (Array.isArray(name)) {
+            const greetings = await Promise.all(name.map(n => this.create_hello_string(n)));
+            return greetings.join(", ");
+        }
+        return this.create_hello_string(name);
     }
 }

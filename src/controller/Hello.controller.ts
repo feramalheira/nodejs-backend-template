@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import HelloService from "../services/Hello.service.js";
+import HelloService from "../services/Hello.service.ts";
 
 export default class HelloController {
     _service: HelloService;
@@ -7,14 +7,17 @@ export default class HelloController {
         this._service = service
     }
 
-    async hello_world(_req: Request, res: Response) {
+    hello_world = async (_req: Request, res: Response) => {
         const return_str = await this._service.create_hello_world_string();
+        res.status(200).json({ message: return_str });
     }
 
-    async hello_name(req: Request, res: Response) {
+    hello_name = async (req: Request, res: Response) => {
         const params = req.params;
         if (!params?.name) {
-            // throw error
+            return res.status(400).json({ message: "Missing name parameter" });
         }
+        const return_str = await this._service.create_hello_name_string(params.name);
+        res.status(200).json({ message: return_str });
     }
 }
